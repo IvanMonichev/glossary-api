@@ -16,3 +16,18 @@ pip install -r requirements.txt
 ```bash
 uvicorn app.main:app --reload
 ```
+
+## Настройка окружения
+Создайте файл .env в корне проекта, можно скопировать `env-example`.
+
+## Makefile
+```makefile
+run:        # запуск API
+	uvicorn app.main:app --reload
+
+seed:       # сидирование базы
+	python seed_db.py
+
+db:         # удаление и пересоздание базы
+	rm -f database/glossary.db && python seed_db.py
+```
